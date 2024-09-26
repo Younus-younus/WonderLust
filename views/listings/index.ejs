@@ -1,5 +1,51 @@
 <% layout("/layout/boilerplate") %>
-    <h3>All Listings</h3>
+
+<div id="filter">
+  <span id="scroll-row">
+    <div class="filter">
+      <div><i class="fa-solid fa-fire"></i></div>
+      <p>Trending</p>
+    </div>
+    <div class="filter">
+      <div><i class="fa-solid fa-bed"></i></div>
+      <p>Rooms</p>
+    </div>
+    <div class="filter">
+      <div><i class="fa-solid fa-umbrella-beach"></i></div>
+      <p>Beach</p>
+    </div>
+    <div class="filter">
+      <div><i class="fa-solid fa-house"></i></div>
+      <p>Cabins</p>
+    </div>
+    <div class="filter">
+      <div><i class="fa-solid fa-person-swimming"></i></div>
+      <p>Pool's</p>
+    </div>
+    <div class="filter">
+      <div><i class="fa-solid fa-tree"></i></div>
+      <p>Tropical</p>
+    </div>
+    <div class="filter">
+      <div><i class="fa-solid fa-bowling-ball"></i></div>
+      <p>Play</p>
+    </div>
+    <div class="filter">
+      <div><i class="fa-solid fa-palette"></i></div>
+      <p>CreativeSpaces</p>
+    </div>
+    <div class="filter">
+      <div><i class="fa-solid fa-golf-ball-tee"></i></div>
+      <p>Golfing</p>
+    </div>
+  </span>
+  <div id="tax-toggle">
+    <div class="form-check-reverse form-switch">
+      <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+      <label class="form-check-label" for="flexSwitchCheckDefault">Display total after taxes</label>
+    </div>
+  </div>
+</div>
     <!-- <form method="GET" action="Listings/new">
         <button>Create new List</button>
     </form> -->
@@ -11,10 +57,25 @@
                     <div class="card-img-overlay"></div>
                     <div class="card-body">
                       <h5 class="card-title"> <b><%= listing.title %></b></h5>
-                      <p class="card-text">&#8377;<%= listing.price ? listing.price.toLocaleString("en-IN") : 'N/A' %> /night</p>
+                      <p class="card-text">&#8377;<%= listing.price ? listing.price.toLocaleString("en-IN") : 'N/A' %> /night  <i class="tax-info">&nbsp; &nbsp;+18% tax</i></p>
                       <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
                     </div>
                   </div>
             </a>
               <% } %>        
     </div>
+
+    <script>
+      let tax = document.getElementById("flexSwitchCheckDefault");
+      let tax_info = document.getElementsByClassName("tax-info");
+      tax.addEventListener("click",()=>{
+        console.log("clicked");
+        for(info of tax_info){
+          if(info.style.display != "inline") {
+            info.style.display = "inline";
+          } else {
+          info.style.display = "none";
+        }
+        }
+      })
+    </script>

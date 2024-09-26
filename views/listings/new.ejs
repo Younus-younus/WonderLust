@@ -3,7 +3,7 @@
 <br><br>
 <div class="row">
     <div class="col-8 offset-2">
-    <form method="POST" action="/listings" novalidate class="needs-validation">
+    <form method="POST" action="/listings" novalidate class="needs-validation" enctype="multipart/form-data">
         <div class="mb-3">
             <label for="title" class="form-label">Title</label>
             <input type="text" name="listings[title]" placeholder="Title" class="form-control" required>
@@ -16,8 +16,8 @@
             <div class="invalid-feedback">Description should be valid</div>
         </div>
         <div class="mb-3">
-            <label for="image" class="form-label">Image URL/Link</label>
-            <input type="text" name="listings[image][url]" placeholder="URL/LINK of image" class="form-control" required>
+            <label for="image" class="form-label">Upload Image</label>
+            <input type="file" name="listing[image]" class="form-control" required>
             <div class="invalid-feedback">Image should be valid</div>
         </div>
         <div class="row">

@@ -20,3 +20,5 @@
     function updateRating(value) {
         document.getElementById('rating-value').innerText = value;
     }
+let SearchBox = document.getElementById("SearchBox");
+let Submit = document.getElementById("Submit");
